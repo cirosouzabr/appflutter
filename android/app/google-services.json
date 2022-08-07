@@ -1,40 +1,40 @@
 {
   "project_info": {
-    "project_number": "808617633598",
-    "project_id": "mv6tarefas",
-    "storage_bucket": "mv6tarefas.appspot.com"
+    "project_number": "1057491095397",
+    "project_id": "mv6chat",
+    "storage_bucket": "mv6chat.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:808617633598:android:b59f607b9fe78b85ac2e6f",
+        "mobilesdk_app_id": "1:1057491095397:android:eea8bb0e3277946bc45b8c",
         "android_client_info": {
-          "package_name": "com.flutterflow.sniffsocial"
+          "package_name": "mv6chet.mv6group"
         }
       },
       "oauth_client": [
         {
-          "client_id": "808617633598-dpvpacio3tsk7sihvjm5t8jonvh80dmb.apps.googleusercontent.com",
+          "client_id": "1057491095397-ec2bdef51icpv9c9hub81gkjegn5upfn.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAYgTF2iK48iVJUVoEB7e47CnpiPzZ19VE"
+          "current_key": "AIzaSyCLYl9xxckozvVRhdXHsQnOwGJAZtKT9Cs"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "808617633598-dpvpacio3tsk7sihvjm5t8jonvh80dmb.apps.googleusercontent.com",
+              "client_id": "1057491095397-ec2bdef51icpv9c9hub81gkjegn5upfn.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "808617633598-cqnddhni49smhki37euhcsbvlb2n58ev.apps.googleusercontent.com",
+              "client_id": "1057491095397-4rlm504jt7a2ekrug7kvfnc6d3aolg66.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "Robin.Do"
+                "bundle_id": "mv6chet.mv6group"
               }
             }
           ]

@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'auth/firebase_user_provider.dart';
 import 'auth/auth_util.dart';
-import 'backend/push_notifications/push_notifications_util.dart';
+
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'index.dart';
 
@@ -32,17 +33,16 @@ class _MyAppState extends State<MyApp> {
   Locale? _locale;
   ThemeMode _themeMode = FlutterFlowTheme.themeMode;
 
-  late Stream<Mv6appMODELFirebaseUser> userStream;
-  Mv6appMODELFirebaseUser? initialUser;
+  late Stream<Mv6chatFirebaseUser> userStream;
+  Mv6chatFirebaseUser? initialUser;
   bool displaySplashImage = true;
 
   final authUserSub = authenticatedUserStream.listen((_) {});
-  final fcmTokenSub = fcmTokenUserStream.listen((_) {});
 
   @override
   void initState() {
     super.initState();
-    userStream = mv6appMODELFirebaseUserStream()
+    userStream = mv6chatFirebaseUserStream()
       ..listen((user) => initialUser ?? setState(() => initialUser = user));
     Future.delayed(
       Duration(seconds: 1),
@@ -53,7 +53,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void dispose() {
     authUserSub.cancel();
-    fcmTokenSub.cancel();
+
     super.dispose();
   }
 
@@ -66,7 +66,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'mv6appMODEL',
+      title: 'mv6chat',
       localizationsDelegates: [
         FFLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
@@ -74,7 +74,9 @@ class _MyAppState extends State<MyApp> {
         GlobalCupertinoLocalizations.delegate,
       ],
       locale: _locale,
-      supportedLocales: const [Locale('en', '')],
+      supportedLocales: const [
+        Locale('en', ''),
+      ],
       theme: ThemeData(brightness: Brightness.light),
       darkTheme: ThemeData(brightness: Brightness.dark),
       themeMode: _themeMode,
@@ -84,16 +86,15 @@ class _MyAppState extends State<MyApp> {
               child: Center(
                 child: Builder(
                   builder: (context) => Image.asset(
-                    'assets/images/Sniff_0.0_Splash@2x.png',
+                    'assets/images/splash@2x.png',
                     width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height * 1,
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fitWidth,
                   ),
                 ),
               ),
             )
           : currentUser!.loggedIn
-              ? PushNotificationsHandler(child: NavBarPage())
+              ? NavBarPage()
               : LoginWidget(),
     );
   }
@@ -110,7 +111,7 @@ class NavBarPage extends StatefulWidget {
 
 /// This is the private State class that goes with NavBarPage.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPage = 'homePage';
+  String _currentPage = 'MAINHome';
 
   @override
   void initState() {
@@ -121,9 +122,11 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'homePage': HomePageWidget(),
-      'allChatsPage': AllChatsPageWidget(),
-      'profilePage': ProfilePageWidget(),
+      'MAINHome': MAINHomeWidget(),
+      'MAINSavedJobs': MAINSavedJobsWidget(),
+      'MAIN_Chat': MAINChatWidget(),
+      'MAIN_Candidates': MAINCandidatesWidget(),
+      'MAIN_MyProfile': MAINMyProfileWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPage);
     return Scaffold(
@@ -132,18 +135,34 @@ class _NavBarPageState extends State<NavBarPage> {
         currentIndex: currentIndex,
         onTap: (i) => setState(() => _currentPage = tabs.keys.toList()[i]),
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-        selectedItemColor: FlutterFlowTheme.of(context).primaryColor,
-        unselectedItemColor: FlutterFlowTheme.of(context).grayIcon,
-        showSelectedLabels: true,
+        selectedItemColor: FlutterFlowTheme.of(context).secondaryColor,
+        unselectedItemColor: Color(0xFFABB3BA),
+        showSelectedLabels: false,
         showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.home_outlined,
+              Icons.work_outline,
               size: 24,
             ),
-            label: 'Home',
+            activeIcon: Icon(
+              Icons.work_outlined,
+              size: 24,
+            ),
+            label: ' ',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.favorite_border,
+              size: 24,
+            ),
+            activeIcon: Icon(
+              Icons.favorite_sharp,
+              size: 24,
+            ),
+            label: ' ',
             tooltip: '',
           ),
           BottomNavigationBarItem(
@@ -152,22 +171,34 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24,
             ),
             activeIcon: Icon(
-              Icons.chat_bubble_outlined,
+              Icons.chat_bubble_rounded,
               size: 24,
             ),
-            label: 'Messages',
+            label: 'Chats',
             tooltip: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.account_circle_outlined,
+              Icons.group_outlined,
               size: 24,
             ),
             activeIcon: Icon(
-              Icons.account_circle,
+              Icons.group,
               size: 24,
             ),
-            label: 'Profile',
+            label: ' ',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.person_outlined,
+              size: 24,
+            ),
+            activeIcon: Icon(
+              Icons.person_rounded,
+              size: 24,
+            ),
+            label: '',
             tooltip: '',
           )
         ],

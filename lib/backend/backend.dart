@@ -4,13 +4,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import '../flutter_flow/flutter_flow_util.dart';
 
-import 'schema/user_posts_record.dart';
+import 'schema/job_posts_record.dart';
 import 'schema/users_record.dart';
-import 'schema/post_comments_record.dart';
-import 'schema/user_stories_record.dart';
-import 'schema/story_comments_record.dart';
-import 'schema/dogs_record.dart';
-import 'schema/friends_record.dart';
+import 'schema/work_history_record.dart';
+import 'schema/companies_record.dart';
+import 'schema/saved_jobs_record.dart';
+import 'schema/applied_jobs_record.dart';
 import 'schema/chats_record.dart';
 import 'schema/chat_messages_record.dart';
 import 'schema/serializers.dart';
@@ -20,52 +19,51 @@ export 'package:cloud_firestore/cloud_firestore.dart';
 export 'schema/index.dart';
 export 'schema/serializers.dart';
 
-export 'schema/user_posts_record.dart';
+export 'schema/job_posts_record.dart';
 export 'schema/users_record.dart';
-export 'schema/post_comments_record.dart';
-export 'schema/user_stories_record.dart';
-export 'schema/story_comments_record.dart';
-export 'schema/dogs_record.dart';
-export 'schema/friends_record.dart';
+export 'schema/work_history_record.dart';
+export 'schema/companies_record.dart';
+export 'schema/saved_jobs_record.dart';
+export 'schema/applied_jobs_record.dart';
 export 'schema/chats_record.dart';
 export 'schema/chat_messages_record.dart';
 
-/// Functions to query UserPostsRecords (as a Stream and as a Future).
-Stream<List<UserPostsRecord>> queryUserPostsRecord({
+/// Functions to query JobPostsRecords (as a Stream and as a Future).
+Stream<List<JobPostsRecord>> queryJobPostsRecord({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollection(
-      UserPostsRecord.collection,
-      UserPostsRecord.serializer,
+      JobPostsRecord.collection,
+      JobPostsRecord.serializer,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<List<UserPostsRecord>> queryUserPostsRecordOnce({
+Future<List<JobPostsRecord>> queryJobPostsRecordOnce({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollectionOnce(
-      UserPostsRecord.collection,
-      UserPostsRecord.serializer,
+      JobPostsRecord.collection,
+      JobPostsRecord.serializer,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<FFFirestorePage<UserPostsRecord>> queryUserPostsRecordPage({
+Future<FFFirestorePage<JobPostsRecord>> queryJobPostsRecordPage({
   Query Function(Query)? queryBuilder,
   DocumentSnapshot? nextPageMarker,
   required int pageSize,
   required bool isStream,
 }) =>
     queryCollectionPage(
-      UserPostsRecord.collection,
-      UserPostsRecord.serializer,
+      JobPostsRecord.collection,
+      JobPostsRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -114,210 +112,168 @@ Future<FFFirestorePage<UsersRecord>> queryUsersRecordPage({
       isStream: isStream,
     );
 
-/// Functions to query PostCommentsRecords (as a Stream and as a Future).
-Stream<List<PostCommentsRecord>> queryPostCommentsRecord({
+/// Functions to query WorkHistoryRecords (as a Stream and as a Future).
+Stream<List<WorkHistoryRecord>> queryWorkHistoryRecord({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollection(
-      PostCommentsRecord.collection,
-      PostCommentsRecord.serializer,
+      WorkHistoryRecord.collection,
+      WorkHistoryRecord.serializer,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<List<PostCommentsRecord>> queryPostCommentsRecordOnce({
+Future<List<WorkHistoryRecord>> queryWorkHistoryRecordOnce({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollectionOnce(
-      PostCommentsRecord.collection,
-      PostCommentsRecord.serializer,
+      WorkHistoryRecord.collection,
+      WorkHistoryRecord.serializer,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<FFFirestorePage<PostCommentsRecord>> queryPostCommentsRecordPage({
+Future<FFFirestorePage<WorkHistoryRecord>> queryWorkHistoryRecordPage({
   Query Function(Query)? queryBuilder,
   DocumentSnapshot? nextPageMarker,
   required int pageSize,
   required bool isStream,
 }) =>
     queryCollectionPage(
-      PostCommentsRecord.collection,
-      PostCommentsRecord.serializer,
+      WorkHistoryRecord.collection,
+      WorkHistoryRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
       isStream: isStream,
     );
 
-/// Functions to query UserStoriesRecords (as a Stream and as a Future).
-Stream<List<UserStoriesRecord>> queryUserStoriesRecord({
+/// Functions to query CompaniesRecords (as a Stream and as a Future).
+Stream<List<CompaniesRecord>> queryCompaniesRecord({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollection(
-      UserStoriesRecord.collection,
-      UserStoriesRecord.serializer,
+      CompaniesRecord.collection,
+      CompaniesRecord.serializer,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<List<UserStoriesRecord>> queryUserStoriesRecordOnce({
+Future<List<CompaniesRecord>> queryCompaniesRecordOnce({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollectionOnce(
-      UserStoriesRecord.collection,
-      UserStoriesRecord.serializer,
+      CompaniesRecord.collection,
+      CompaniesRecord.serializer,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<FFFirestorePage<UserStoriesRecord>> queryUserStoriesRecordPage({
+Future<FFFirestorePage<CompaniesRecord>> queryCompaniesRecordPage({
   Query Function(Query)? queryBuilder,
   DocumentSnapshot? nextPageMarker,
   required int pageSize,
   required bool isStream,
 }) =>
     queryCollectionPage(
-      UserStoriesRecord.collection,
-      UserStoriesRecord.serializer,
+      CompaniesRecord.collection,
+      CompaniesRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
       isStream: isStream,
     );
 
-/// Functions to query StoryCommentsRecords (as a Stream and as a Future).
-Stream<List<StoryCommentsRecord>> queryStoryCommentsRecord({
+/// Functions to query SavedJobsRecords (as a Stream and as a Future).
+Stream<List<SavedJobsRecord>> querySavedJobsRecord({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollection(
-      StoryCommentsRecord.collection,
-      StoryCommentsRecord.serializer,
+      SavedJobsRecord.collection,
+      SavedJobsRecord.serializer,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<List<StoryCommentsRecord>> queryStoryCommentsRecordOnce({
+Future<List<SavedJobsRecord>> querySavedJobsRecordOnce({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollectionOnce(
-      StoryCommentsRecord.collection,
-      StoryCommentsRecord.serializer,
+      SavedJobsRecord.collection,
+      SavedJobsRecord.serializer,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<FFFirestorePage<StoryCommentsRecord>> queryStoryCommentsRecordPage({
+Future<FFFirestorePage<SavedJobsRecord>> querySavedJobsRecordPage({
   Query Function(Query)? queryBuilder,
   DocumentSnapshot? nextPageMarker,
   required int pageSize,
   required bool isStream,
 }) =>
     queryCollectionPage(
-      StoryCommentsRecord.collection,
-      StoryCommentsRecord.serializer,
+      SavedJobsRecord.collection,
+      SavedJobsRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
       isStream: isStream,
     );
 
-/// Functions to query DogsRecords (as a Stream and as a Future).
-Stream<List<DogsRecord>> queryDogsRecord({
+/// Functions to query AppliedJobsRecords (as a Stream and as a Future).
+Stream<List<AppliedJobsRecord>> queryAppliedJobsRecord({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollection(
-      DogsRecord.collection,
-      DogsRecord.serializer,
+      AppliedJobsRecord.collection,
+      AppliedJobsRecord.serializer,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<List<DogsRecord>> queryDogsRecordOnce({
+Future<List<AppliedJobsRecord>> queryAppliedJobsRecordOnce({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollectionOnce(
-      DogsRecord.collection,
-      DogsRecord.serializer,
+      AppliedJobsRecord.collection,
+      AppliedJobsRecord.serializer,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<FFFirestorePage<DogsRecord>> queryDogsRecordPage({
+Future<FFFirestorePage<AppliedJobsRecord>> queryAppliedJobsRecordPage({
   Query Function(Query)? queryBuilder,
   DocumentSnapshot? nextPageMarker,
   required int pageSize,
   required bool isStream,
 }) =>
     queryCollectionPage(
-      DogsRecord.collection,
-      DogsRecord.serializer,
-      queryBuilder: queryBuilder,
-      nextPageMarker: nextPageMarker,
-      pageSize: pageSize,
-      isStream: isStream,
-    );
-
-/// Functions to query FriendsRecords (as a Stream and as a Future).
-Stream<List<FriendsRecord>> queryFriendsRecord({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollection(
-      FriendsRecord.collection,
-      FriendsRecord.serializer,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-Future<List<FriendsRecord>> queryFriendsRecordOnce({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollectionOnce(
-      FriendsRecord.collection,
-      FriendsRecord.serializer,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-Future<FFFirestorePage<FriendsRecord>> queryFriendsRecordPage({
-  Query Function(Query)? queryBuilder,
-  DocumentSnapshot? nextPageMarker,
-  required int pageSize,
-  required bool isStream,
-}) =>
-    queryCollectionPage(
-      FriendsRecord.collection,
-      FriendsRecord.serializer,
+      AppliedJobsRecord.collection,
+      AppliedJobsRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

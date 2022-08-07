@@ -1,7 +1,7 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /userPosts/{document} {
+    match /jobPosts/{document} {
       allow create: if true;
       allow read: if true;
       allow write: if false;
@@ -15,35 +15,28 @@ service cloud.firestore {
       allow delete: if false;
     }
 
-    match /postComments/{document} {
+    match /workHistory/{document} {
       allow create: if true;
       allow read: if true;
       allow write: if false;
       allow delete: if false;
     }
 
-    match /userStories/{document} {
+    match /companies/{document} {
       allow create: if true;
       allow read: if true;
       allow write: if false;
       allow delete: if false;
     }
 
-    match /storyComments/{document} {
+    match /savedJobs/{document} {
       allow create: if true;
       allow read: if true;
       allow write: if false;
       allow delete: if false;
     }
 
-    match /dogs/{document} {
-      allow create: if true;
-      allow read: if true;
-      allow write: if false;
-      allow delete: if false;
-    }
-
-    match /friends/{document} {
+    match /appliedJobs/{document} {
       allow create: if true;
       allow read: if true;
       allow write: if false;

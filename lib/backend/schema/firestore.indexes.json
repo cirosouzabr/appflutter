@@ -1,43 +1,57 @@
 {
   "indexes": [
     {
-      "collectionGroup": "postComments",
+      "collectionGroup": "workHistory",
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "post",
+          "fieldPath": "user",
           "order": "ASCENDING"
         },
         {
-          "fieldPath": "timePosted",
+          "fieldPath": "endDate",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "workHistory",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "user",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "endDate",
           "order": "DESCENDING"
         }
       ]
     },
     {
-      "collectionGroup": "storyComments",
+      "collectionGroup": "appliedJobs",
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "storyAssociation",
+          "fieldPath": "userApplied",
           "order": "ASCENDING"
         },
         {
-          "fieldPath": "timePosted",
+          "fieldPath": "appliedTime",
           "order": "DESCENDING"
         }
       ]
     },
     {
-      "collectionGroup": "userPosts",
+      "collectionGroup": "jobPosts",
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "postUser",
+          "fieldPath": "postedBy",
           "order": "ASCENDING"
         },
         {
-          "fieldPath": "timePosted",
+          "fieldPath": "timeCreated",
           "order": "DESCENDING"
         }
       ]
@@ -57,6 +71,20 @@
       ]
     },
     {
+      "collectionGroup": "appliedJobs",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "jobApplied",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "appliedTime",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
       "collectionGroup": "chat_messages",
       "queryScope": "COLLECTION",
       "fields": [
@@ -67,18 +95,6 @@
         {
           "fieldPath": "timestamp",
           "order": "DESCENDING"
-        }
-      ]
-    }
-  ],
-  "fieldOverrides": [
-    {
-      "collectionGroup": "fcm_tokens",
-      "fieldPath": "fcm_token",
-      "indexes": [
-        {
-          "order": "ASCENDING",
-          "queryScope": "COLLECTION_GROUP"
         }
       ]
     }

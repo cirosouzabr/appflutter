@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>808617633598-ppajq0dvjc6gr1t11s49eerhqf6tgpm3.apps.googleusercontent.com</string>
+	<string>1057491095397-4rlm504jt7a2ekrug7kvfnc6d3aolg66.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.808617633598-ppajq0dvjc6gr1t11s49eerhqf6tgpm3</string>
+	<string>com.googleusercontent.apps.1057491095397-4rlm504jt7a2ekrug7kvfnc6d3aolg66</string>
 	<key>API_KEY</key>
-	<string>AIzaSyC5LyN0BL1aJnMbkxIdp3u-TI8gC70umt4</string>
+	<string>AIzaSyCYRdX6MiwBax9xUmVdjbhnazOJN1PUqcE</string>
 	<key>GCM_SENDER_ID</key>
-	<string>808617633598</string>
+	<string>1057491095397</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.flutterflow.sniffsocial</string>
+	<string>mv6chet.mv6group</string>
 	<key>PROJECT_ID</key>
-	<string>mv6tarefas</string>
+	<string>mv6chat</string>
 	<key>STORAGE_BUCKET</key>
-	<string>mv6tarefas.appspot.com</string>
+	<string>mv6chat.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:808617633598:ios:d8b806090efe7d81ac2e6f</string>
+	<string>1:1057491095397:ios:081cac7b95699433c45b8c</string>
 </dict>
 </plist>

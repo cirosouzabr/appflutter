@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>mv6appMODEL</string>
+	<string>mv6chat</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -13,7 +13,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>mv6appMODEL</string>
+	<string>mv6chat</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 
@@ -28,7 +28,7 @@
             <string>Editor</string>
             <key>CFBundleURLSchemes</key>
             <array>
-                <string>com.googleusercontent.apps.808617633598-ppajq0dvjc6gr1t11s49eerhqf6tgpm3</string>
+                <string>com.googleusercontent.apps.1057491095397-4rlm504jt7a2ekrug7kvfnc6d3aolg66</string>
                 
             </array>
         </dict>
@@ -43,16 +43,9 @@
 
 	<key>NSCameraUsageDescription</key>
       <string>In order to take a picture or video, this app requires permission to access the camera.</string>
-	<key>NSMicrophoneUsageDescription</key>
-      <string>In order to record audio for video, this app requires permission to access the microphone.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
       <string>In order to upload media, this app requires permission to access the photo library.</string>
 
-    <key>UIBackgroundModes</key>
-    <array>
-        <string>fetch</string>
-        <string>remote-notification</string>
-    </array>
 
 
 	<key>UILaunchStoryboardName</key>

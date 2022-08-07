@@ -38,11 +38,15 @@ abstract class FlutterFlowTheme {
   late Color primaryText;
   late Color secondaryText;
 
-  late Color primaryDark;
-  late Color background;
   late Color grayIcon;
-  late Color gray200;
-  late Color dark600;
+  late Color darkText;
+  late Color primary600;
+  late Color secondary600;
+  late Color dark400;
+  late Color background;
+  late Color grayIcon400;
+  late Color lineColor;
+  late Color dark500;
 
   String get title1Family => typography.title1Family;
   TextStyle get title1 => typography.title1;
@@ -63,20 +67,24 @@ abstract class FlutterFlowTheme {
 }
 
 class LightModeTheme extends FlutterFlowTheme {
-  late Color primaryColor = const Color(0xFF4E39F9);
+  late Color primaryColor = const Color(0xFFEE8B60);
   late Color secondaryColor = const Color(0xFF39D2C0);
   late Color tertiaryColor = const Color(0xFFFFFFFF);
-  late Color alternate = const Color(0xFF1A1F24);
+  late Color alternate = const Color(0xFFC3724C);
   late Color primaryBackground = const Color(0xFFF1F4F8);
   late Color secondaryBackground = const Color(0xFFFFFFFF);
-  late Color primaryText = const Color(0xFF1A1F24);
-  late Color secondaryText = const Color(0xFF95A1AC);
+  late Color primaryText = const Color(0xFF090F13);
+  late Color secondaryText = const Color(0xFF57636C);
 
-  late Color primaryDark = Color(0xFF1A1F24);
+  late Color grayIcon = Color(0xFF57636C);
+  late Color darkText = Color(0xFF090F13);
+  late Color primary600 = Color(0xFFC3724C);
+  late Color secondary600 = Color(0xFF2CAE9F);
+  late Color dark400 = Color(0xFF262D34);
   late Color background = Color(0xFFF1F4F8);
-  late Color grayIcon = Color(0xFF95A1AC);
-  late Color gray200 = Color(0xFFDBE2E7);
-  late Color dark600 = Color(0xFF262D34);
+  late Color grayIcon400 = Color(0xFFABB3BA);
+  late Color lineColor = Color(0xFFDBE2E7);
+  late Color dark500 = Color(0xFF1D2429);
 }
 
 abstract class Typography {
@@ -101,72 +109,76 @@ class ThemeTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get title1Family => 'Urbanist';
+  String get title1Family => 'Outfit';
   TextStyle get title1 => GoogleFonts.getFont(
-        'Urbanist',
+        'Outfit',
         color: theme.primaryText,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w500,
         fontSize: 32,
       );
-  String get title2Family => 'Urbanist';
+  String get title2Family => 'Outfit';
   TextStyle get title2 => GoogleFonts.getFont(
-        'Urbanist',
+        'Outfit',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 26,
+      );
+  String get title3Family => 'Outfit';
+  TextStyle get title3 => GoogleFonts.getFont(
+        'Outfit',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 24,
       );
-  String get title3Family => 'Urbanist';
-  TextStyle get title3 => GoogleFonts.getFont(
-        'Urbanist',
+  String get subtitle1Family => 'Outfit';
+  TextStyle get subtitle1 => GoogleFonts.getFont(
+        'Outfit',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 20,
       );
-  String get subtitle1Family => 'Urbanist';
-  TextStyle get subtitle1 => GoogleFonts.getFont(
-        'Urbanist',
-        color: theme.primaryText,
-        fontWeight: FontWeight.bold,
-        fontSize: 16,
-      );
-  String get subtitle2Family => 'Urbanist';
+  String get subtitle2Family => 'Outfit';
   TextStyle get subtitle2 => GoogleFonts.getFont(
-        'Urbanist',
+        'Outfit',
         color: theme.secondaryText,
-        fontWeight: FontWeight.bold,
-        fontSize: 16,
+        fontWeight: FontWeight.normal,
+        fontSize: 14,
       );
-  String get bodyText1Family => 'Urbanist';
+  String get bodyText1Family => 'Outfit';
   TextStyle get bodyText1 => GoogleFonts.getFont(
-        'Urbanist',
+        'Outfit',
         color: theme.primaryText,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.normal,
         fontSize: 14,
       );
-  String get bodyText2Family => 'Urbanist';
+  String get bodyText2Family => 'Outfit';
   TextStyle get bodyText2 => GoogleFonts.getFont(
-        'Urbanist',
+        'Outfit',
         color: theme.secondaryText,
-        fontWeight: FontWeight.w500,
-        fontSize: 14,
+        fontWeight: FontWeight.normal,
+        fontSize: 12,
       );
 }
 
 class DarkModeTheme extends FlutterFlowTheme {
-  late Color primaryColor = const Color(0xFF4E39F9);
+  late Color primaryColor = const Color(0xFFEE8B60);
   late Color secondaryColor = const Color(0xFF39D2C0);
   late Color tertiaryColor = const Color(0xFFFFFFFF);
-  late Color alternate = const Color(0xFF1A1F24);
-  late Color primaryBackground = const Color(0xFF262D34);
-  late Color secondaryBackground = const Color(0xFF1A1F24);
+  late Color alternate = const Color(0xFFC3724C);
+  late Color primaryBackground = const Color(0xFF1D2429);
+  late Color secondaryBackground = const Color(0xFF090F13);
   late Color primaryText = const Color(0xFFFFFFFF);
-  late Color secondaryText = const Color(0xFF95A1AC);
+  late Color secondaryText = const Color(0xFFABB3BA);
 
-  late Color primaryDark = Color(0xFF1A1F24);
+  late Color grayIcon = Color(0xFF57636C);
+  late Color darkText = Color(0xFF090F13);
+  late Color primary600 = Color(0xFFC3724C);
+  late Color secondary600 = Color(0xFF2CAE9F);
+  late Color dark400 = Color(0xFF262D34);
   late Color background = Color(0xFFF1F4F8);
-  late Color grayIcon = Color(0xFF95A1AC);
-  late Color gray200 = Color(0xFFDBE2E7);
-  late Color dark600 = Color(0xFF262D34);
+  late Color grayIcon400 = Color(0xFFABB3BA);
+  late Color lineColor = Color(0xFF262D34);
+  late Color dark500 = Color(0xFF1D2429);
 }
 
 extension TextStyleHelper on TextStyle {

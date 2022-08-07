@@ -14,22 +14,36 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
 
   String? get email;
 
-  @BuiltValueField(wireName: 'photo_url')
-  String? get photoUrl;
-
-  String? get uid;
+  String? get password;
 
   @BuiltValueField(wireName: 'created_time')
   DateTime? get createdTime;
 
-  @BuiltValueField(wireName: 'phone_number')
-  String? get phoneNumber;
-
-  String? get userName;
+  @BuiltValueField(wireName: 'photo_url')
+  String? get photoUrl;
 
   String? get bio;
 
-  bool? get isFollowed;
+  String? get positionTitle;
+
+  String? get experienceLevel;
+
+  String? get currentCompany;
+
+  String? get uid;
+
+  @BuiltValueField(wireName: 'phone_number')
+  String? get phoneNumber;
+
+  bool? get likedPosts;
+
+  String? get profileType;
+
+  String? get salary;
+
+  DocumentReference? get company;
+
+  bool? get isGuest;
 
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
@@ -38,12 +52,18 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
   static void _initializeBuilder(UsersRecordBuilder builder) => builder
     ..displayName = ''
     ..email = ''
+    ..password = ''
     ..photoUrl = ''
+    ..bio = ''
+    ..positionTitle = ''
+    ..experienceLevel = ''
+    ..currentCompany = ''
     ..uid = ''
     ..phoneNumber = ''
-    ..userName = ''
-    ..bio = ''
-    ..isFollowed = false;
+    ..likedPosts = false
+    ..profileType = ''
+    ..salary = ''
+    ..isGuest = false;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('users');
@@ -55,6 +75,43 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
   static Future<UsersRecord> getDocumentOnce(DocumentReference ref) => ref
       .get()
       .then((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+
+  static UsersRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) => UsersRecord(
+        (c) => c
+          ..displayName = snapshot.data['display_name']
+          ..email = snapshot.data['email']
+          ..password = snapshot.data['password']
+          ..createdTime = safeGet(() => DateTime.fromMillisecondsSinceEpoch(
+              snapshot.data['created_time']))
+          ..photoUrl = snapshot.data['photo_url']
+          ..bio = snapshot.data['bio']
+          ..positionTitle = snapshot.data['positionTitle']
+          ..experienceLevel = snapshot.data['experienceLevel']
+          ..currentCompany = snapshot.data['currentCompany']
+          ..uid = snapshot.data['uid']
+          ..phoneNumber = snapshot.data['phone_number']
+          ..likedPosts = snapshot.data['likedPosts']
+          ..profileType = snapshot.data['profileType']
+          ..salary = snapshot.data['salary']
+          ..company = safeGet(() => toRef(snapshot.data['company']))
+          ..isGuest = snapshot.data['isGuest']
+          ..ffRef = UsersRecord.collection.doc(snapshot.objectID),
+      );
+
+  static Future<List<UsersRecord>> search(
+          {String? term,
+          FutureOr<LatLng>? location,
+          int? maxResults,
+          double? searchRadiusMeters}) =>
+      FFAlgoliaManager.instance
+          .algoliaQuery(
+            index: 'users',
+            term: term,
+            maxResults: maxResults,
+            location: location,
+            searchRadiusMeters: searchRadiusMeters,
+          )
+          .then((r) => r.map(fromAlgolia).toList());
 
   UsersRecord._();
   factory UsersRecord([void Function(UsersRecordBuilder) updates]) =
@@ -69,13 +126,20 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
 Map<String, dynamic> createUsersRecordData({
   String? displayName,
   String? email,
-  String? photoUrl,
-  String? uid,
+  String? password,
   DateTime? createdTime,
-  String? phoneNumber,
-  String? userName,
+  String? photoUrl,
   String? bio,
-  bool? isFollowed,
+  String? positionTitle,
+  String? experienceLevel,
+  String? currentCompany,
+  String? uid,
+  String? phoneNumber,
+  bool? likedPosts,
+  String? profileType,
+  String? salary,
+  DocumentReference? company,
+  bool? isGuest,
 }) {
   final firestoreData = serializers.toFirestore(
     UsersRecord.serializer,
@@ -83,13 +147,20 @@ Map<String, dynamic> createUsersRecordData({
       (u) => u
         ..displayName = displayName
         ..email = email
-        ..photoUrl = photoUrl
-        ..uid = uid
+        ..password = password
         ..createdTime = createdTime
-        ..phoneNumber = phoneNumber
-        ..userName = userName
+        ..photoUrl = photoUrl
         ..bio = bio
-        ..isFollowed = isFollowed,
+        ..positionTitle = positionTitle
+        ..experienceLevel = experienceLevel
+        ..currentCompany = currentCompany
+        ..uid = uid
+        ..phoneNumber = phoneNumber
+        ..likedPosts = likedPosts
+        ..profileType = profileType
+        ..salary = salary
+        ..company = company
+        ..isGuest = isGuest,
     ),
   );
 

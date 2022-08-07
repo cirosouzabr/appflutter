@@ -1,17 +1,17 @@
 import 'package:built_value/standard_json_plugin.dart';
 
-import 'user_posts_record.dart';
+import 'job_posts_record.dart';
 import 'users_record.dart';
-import 'post_comments_record.dart';
-import 'user_stories_record.dart';
-import 'story_comments_record.dart';
-import 'dogs_record.dart';
-import 'friends_record.dart';
+import 'work_history_record.dart';
+import 'companies_record.dart';
+import 'saved_jobs_record.dart';
+import 'applied_jobs_record.dart';
 import 'chats_record.dart';
 import 'chat_messages_record.dart';
 
 import 'index.dart';
 
+export '../algolia/algolia_manager.dart';
 export 'index.dart';
 
 part 'serializers.g.dart';
@@ -19,13 +19,12 @@ part 'serializers.g.dart';
 const kDocumentReferenceField = 'Document__Reference__Field';
 
 @SerializersFor(const [
-  UserPostsRecord,
+  JobPostsRecord,
   UsersRecord,
-  PostCommentsRecord,
-  UserStoriesRecord,
-  StoryCommentsRecord,
-  DogsRecord,
-  FriendsRecord,
+  WorkHistoryRecord,
+  CompaniesRecord,
+  SavedJobsRecord,
+  AppliedJobsRecord,
   ChatsRecord,
   ChatMessagesRecord,
 ])

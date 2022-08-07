@@ -1,6 +1,6 @@
 {
-    "name": "mv6appMODEL",
-    "short_name": "mv6appMODEL",
+    "name": "mv6chat",
+    "short_name": "mv6chat",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

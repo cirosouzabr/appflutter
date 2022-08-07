@@ -1,4 +1,4 @@
-# mv6appMODEL
+# mv6chat
 
 A new Flutter project.
 
